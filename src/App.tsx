@@ -1,5 +1,5 @@
 import { createRoutesFromElements, createBrowserRouter, Route, RouterProvider } from 'react-router-dom'
-import './App.css'
+
 import Home from './routes/Home'
 import Cart from './routes/Cart'
 import ShirtDetail from './routes/ShirtDetail'
