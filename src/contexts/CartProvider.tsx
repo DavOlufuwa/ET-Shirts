@@ -28,13 +28,13 @@ const REDUCER_ACTION_TYPE = {
 export type ReducerActionType = typeof REDUCER_ACTION_TYPE 
 
 export type ReducerAction = {
-  type: ReducerActionType,
+  type: string,
   payload?: CartItemType
 }
 
 // Creating the main reducer for the cart and its actions
-const reducer = (state: CartStateType, action: ReducerAction): CartStateType | undefined => {
-  switch(action.type as any){
+const reducer = (state: CartStateType, action: ReducerAction): CartStateType => {
+  switch(action.type){
     case REDUCER_ACTION_TYPE.ADD_TO_CART: {
        
       const filteredCart: CartItemType[] = state.cart.filter(shirt => shirt.id !== action?.payload?.id)
@@ -105,12 +105,12 @@ const useCartContext = (initialCartState: CartStateType) => {
   }, [])
 
   // getting the total quantity  
-  const totalItems = state.cart.reduce((previousValue: number, cartItem: CartItemType): number =>{
+  const totalItems: number = state.cart.reduce((previousValue: number, cartItem: CartItemType): number =>{
     return previousValue + cartItem.quantity
   } , 0)
 
   // getting the total price
-  const totalPriceAndCurrency = new Intl.NumberFormat('en-NG', {style: 'currency', currency: 'NGN'}).format(
+  const totalPriceAndCurrency: string = new Intl.NumberFormat('en-NG', {style: 'currency', currency: 'NGN'}).format(
     state.cart.reduce((previousValue: number, cartItem: CartItemType): number =>{
      return previousValue + cartItem.quantity * cartItem.price
    } , 0)

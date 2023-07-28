@@ -1,3 +1,4 @@
+import useCart from "@/hooks/useCart"
 import {
   Sheet,
   SheetClose,
@@ -9,7 +10,12 @@ import {
   SheetTrigger,
 } from "./ui/sheet"
 
+
+
+
 const CartPreview = () => {
+
+  const { totalItems, cart , totalPriceAndCurrency } = useCart()
   return (
     <div>
       <Sheet>
@@ -23,8 +29,11 @@ const CartPreview = () => {
           <div>
             Cart Items
           </div>
+          <SheetFooter>
+            <SheetDescription>Total Items: {totalItems}</SheetDescription>
+            <SheetDescription>Total Price: {totalPriceAndCurrency}</SheetDescription>
+          </SheetFooter>
         </SheetContent>
-
       </Sheet>
     </div>
   )

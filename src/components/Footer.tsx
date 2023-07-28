@@ -1,6 +1,7 @@
-import React from 'react'
-
 const Footer = () => {
+
+  const year: number = new Date().getFullYear()
+
   return (
     <div>Footer</div>
   )

@@ -3,6 +3,8 @@ import { createRoutesFromElements, createBrowserRouter, Route, RouterProvider } 
 import Home from './routes/Home'
 import Cart from './routes/Cart'
 import ShirtDetail from './routes/ShirtDetail'
+import { ShirtsProvider } from './contexts/ShirtProvider'
+import { CartProvider } from './contexts/CartProvider'
 
 
 const router = createBrowserRouter(createRoutesFromElements(
@@ -17,7 +19,11 @@ const router = createBrowserRouter(createRoutesFromElements(
 function App() {
   return (
     <>
-      <RouterProvider router={router} />
+      <ShirtsProvider>
+        <CartProvider>
+          <RouterProvider router={router} />
+        </CartProvider>
+      </ShirtsProvider>
     </>
   )
 }

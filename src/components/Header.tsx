@@ -1,11 +1,9 @@
 import { NavigationMenu, NavigationMenuItem, NavigationMenuList } from "@radix-ui/react-navigation-menu"
-import { useState } from "react"
-
 import { Link } from "react-router-dom"
 import CartPreview from "./CartPreview"
 
 const Header = () => {
-  const [previewCart , setPreviewCart] = useState<boolean>(false)
+
   return (
     <header className="bg-green-500 flex justify-between relative  px-4 py-5">
       <div className="logo">

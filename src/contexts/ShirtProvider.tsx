@@ -70,7 +70,7 @@ export const ShirtsProvider = ({ children }: ChildrenType): ReactElement => {
     // creating an async function 
     const fetchShirts = async (): Promise<ShirtType[]> => { // This means that the async function will return a promise that will end up looking like an array of the shirtType
       const data = 
-      await fetch("../../data/shirts.json")
+      await fetch("data/shirts.json")
       .then(res => {
         return res.json()
       }).catch(
@@ -78,12 +78,12 @@ export const ShirtsProvider = ({ children }: ChildrenType): ReactElement => {
           if(err instanceof Error) console.log(err.message)
         }
       )
-        return data
+        return data.shirts 
     }
-
     // after getting the data from the async function
-    fetchShirts().then(shirts => setShirts(shirts)) 
+    fetchShirts().then(shirts => setShirts(shirts))
 
+    
   }, [])
 
 

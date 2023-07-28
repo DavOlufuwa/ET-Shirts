@@ -33,5 +33,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate"), require("tw-elements-react/dist/plugin.cjs")],
+  plugins: [require("tailwindcss-animate"), ]
 }
